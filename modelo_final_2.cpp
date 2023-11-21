@@ -3,9 +3,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <windows.h>
-#include <iostream>
 
-//função para realizar a limpeza de console de modo que a matriz seja atualizada
+//funÃ§Ã£o para realizar a limpeza de console de modo que a matriz seja atualizada
 void limpar_console() {
 	#ifdef _WIN32
 	    system("cls");
@@ -17,11 +16,11 @@ void limpar_console() {
 //contadores para numero de vitoria;
 int contadorX = 0, contadorO = 0;
 
-// variáveis globais
+// variÃ¡veis globais
 char jogo[3][3];
 int linha, coluna;
 
-// inicialização da matriz
+// inicializaÃ§Ã£o da matriz
 void inicializarMatriz() {
     for (linha = 0; linha < 3; linha++) {
         for (coluna = 0; coluna < 3; coluna++)
@@ -57,7 +56,7 @@ void imprimir() {
     }
 }
 
-// função vitoria por linha
+// funÃ§Ã£o vitoria por linha
 int ganhouPorLinha(int linha, char vitoria) {
     if (jogo[linha][0] == vitoria &&
         jogo[linha][1] == vitoria &&
@@ -68,7 +67,7 @@ int ganhouPorLinha(int linha, char vitoria) {
     }
 }
 
-// função para verificar vitoria por linhas
+// funÃ§Ã£o para verificar vitoria por linhas
 int ganhouPorLinhas(char vitoria) {
     int ganhou = 0;
 
@@ -78,7 +77,7 @@ int ganhouPorLinhas(char vitoria) {
     return ganhou;
 }
 
-// função para verificar vitoria por coluna
+// funÃ§Ã£o para verificar vitoria por coluna
 int ganhouPorColuna(int coluna, char vitoria) {
     if (jogo[0][coluna] == vitoria &&
         jogo[1][coluna] == vitoria &&
@@ -98,7 +97,7 @@ int ganhouPorColunas(char vitoria) {
     return ganhou;
 }
 
-// função para vitoria para diagonal principal
+// funÃ§Ã£o para vitoria para diagonal principal
 int ganhouPorDiag_Princ(char vitoria) {
     if (jogo[0][0] == vitoria &&
         jogo[1][1] == vitoria &&
@@ -109,7 +108,7 @@ int ganhouPorDiag_Princ(char vitoria) {
     }
 }
 
-// função para vitoria para diagonal secundária
+// funÃ§Ã£o para vitoria para diagonal secundÃ¡ria
 int ganhouPorDiag_Sec(char vitoria) {
     if (jogo[0][2] == vitoria &&
         jogo[1][1] == vitoria &&
@@ -120,7 +119,7 @@ int ganhouPorDiag_Sec(char vitoria) {
     }
 }
 
-// função para coordenadas válidas
+// funÃ§Ã£o para coordenadas vÃ¡lidas
 int Valida(int linha, int coluna) {
     if (linha >= 0 && linha < 3 &&
         coluna >= 0 && coluna < 3 &&
@@ -142,9 +141,9 @@ void lerCoordenadas(char jogada) {
 	    // Ler o caractere para a coluna como entrada
 	    scanf(" %c%c", &linhaChar, &colunaChar);
 	
-	    // Verificar se o caractere é um dígito
+	    // Verificar se o caractere Ã© um dÃ­gito
 	    while (!isdigit(colunaChar) || !isdigit(colunaChar)) {
-	        printf("Coordenada Inválida, digite a coluna da sua jogada (1 a 3): ");
+	        printf("Coordenada InvÃ¡lida, digite a coluna da sua jogada (1 a 3): ");
 	        scanf(" %c%c", &linhaChar, &colunaChar);
 	    }
 	
@@ -159,7 +158,7 @@ void lerCoordenadas(char jogada) {
     jogo[linha][coluna] = jogada;
 }
 
-// função que retorna a quantidade de possições vazias
+// funÃ§Ã£o que retorna a quantidade de possiÃ§Ãµes vazias
 int quantVazias() {
     int quantidade = 0;
 
@@ -208,18 +207,18 @@ void jogar() {
     } while (vitoriaX == 0 && vitoriaO == 0 && quantVazias() > 0);
 
     if (vitoriaX == 1 && contadorX > 0){
-        printf("\nParabéns jogador 1, você venceu!!!\n");
+        printf("\nParabÃ©ns jogador 1, vocÃª venceu!!!\n");
         printf("\nJogador 1 venceu: %d \n", contadorX);
         printf("\nE o jogador 2 venceu: %d \n", contadorO);
         
     } else if (vitoriaO == 1 && contadorO > 0){
     	
-        printf("\nParabéns jogador 2, você venceu!!!\n");
+        printf("\nParabÃ©ns jogador 2, vocÃª venceu!!!\n");
         printf("\nJogador 2 venceu: %d\n", contadorO);
         printf("\nE o jogador 1 venceu: %d \n", contadorX);
         
     } else {
-        printf("\nDeu velha, boa sorte na próxima!!\n");
+        printf("\nDeu velha, boa sorte na prÃ³xima!!\n");
     }
 }
 
