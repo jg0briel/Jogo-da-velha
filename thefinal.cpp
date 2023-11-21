@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <windows.h>
-#include <iostream>
 
 //fun??o para realizar a limpeza de console de modo que a matriz seja atualizada
 void limpar_console() {
@@ -142,18 +141,18 @@ void lerCoordenadas(char jogada) {
     // Ler o caractere para a linha como entrada
     scanf(" %c", &linhaChar);
 
-    // Verificar se o caractere È um dÌgito
+    // Verificar se o caractere √© um d√≠gito
     while (!isdigit(linhaChar)) {
-        printf("Coordenada Inv·lida, digite a linha da sua jogada (1 a 3): ");
+        printf("Coordenada Inv√°lida, digite a linha da sua jogada (1 a 3): ");
         scanf(" %c", &linhaChar);
     }
 
     // Ler o caractere para a coluna como entrada
     scanf(" %c", &colunaChar);
 
-    // Verificar se o caractere È um dÌgito
+    // Verificar se o caractere √© um d√≠gito
     while (!isdigit(colunaChar)) {
-        printf("Coordenada Inv·lida, digite a coluna da sua jogada (1 a 3): ");
+        printf("Coordenada Inv√°lida, digite a coluna da sua jogada (1 a 3): ");
         scanf(" %c", &colunaChar);
     }
 
@@ -161,7 +160,7 @@ void lerCoordenadas(char jogada) {
     linha = linhaChar - '0';
     coluna = colunaChar - '0';
 
-    linha--; // Ajuste do Ìndice do jogador para o Ìndice da matriz
+    linha--; // Ajuste do √≠ndice do jogador para o √≠ndice da matriz
     coluna--;
 } while (Valida(linha, coluna) == 0);
 
